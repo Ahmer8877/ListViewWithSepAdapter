@@ -1,5 +1,7 @@
 package com.e.ahmer.listviewwithseparateadapter
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +11,7 @@ class MainActivity : AppCompatActivity() {
     //inialize the array list with data class
 
     lateinit var userArrayList: ArrayList<UserData>
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -46,5 +49,19 @@ class MainActivity : AppCompatActivity() {
         listview.isClickable=true
         //create the separate adapter for My Adapter
         listview.adapter= MyAdapter(this,userArrayList)
+
+        listview.setOnItemClickListener{parent, view, position, id ->
+
+            val username=name[position]
+            val userphone=PhoneNumber[position]
+            val userImage=imageid[position]
+
+          val Iintent= Intent(this, UserInfo::class.java)
+
+            Iintent.putExtra("name",username)
+            Iintent.putExtra("PhoneNumber",userphone)
+            Iintent.putExtra("imageid",userImage)
+            startActivity(Iintent)
+        }
+        }
     }
-}

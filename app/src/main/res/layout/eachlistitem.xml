@@ -20,7 +20,8 @@
         android:layout_width="180dp"
         android:layout_height="match_parent"
         android:layout_marginTop="8dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="TextSizeCheck">
 
         <TextView
             android:id="@+id/nametext"
@@ -52,7 +53,7 @@
         android:layout_marginTop="08dp"
         android:paddingStart="5dp"
         android:text="4:50AM"
-        tools:ignore="HardcodedText,TextContrastCheck">
+        tools:ignore="HardcodedText,RtlSymmetry,TextContrastCheck">
 
     </TextView>
 
